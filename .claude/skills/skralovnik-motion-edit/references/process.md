@@ -24,6 +24,10 @@ this skill's folder; `$FILM` is the film's project folder (a repo or a folder in
 - Read the film's `NEXT.md` if it exists (the last round's feedback and open points).
 - **First action: a popup** (questions.md §0 or §1). Even when you think you know what he wants.
 - If a video/element arrives as an upload, ask before storing it anywhere new (repo, Drive).
+- **Recognise known material.** If the cuts, brand and elements match the approved v3 (cuts
+  `[0,30,59,90,122,153,182,215,242]`, files byte-identical to `template/public/film/`), say so in
+  the first popup: the approved recipe is the recommended start, a fresh interpretation is the
+  alternative. Shots cut from the same footage can reuse v3's per-shot track and grade values.
 
 ## 1. Intake
 
@@ -115,21 +119,33 @@ A box on the wrong person or drifting off → change that shot's target, pad or 
 
 ## 7. Look before you render
 
-Render the moments that matter at half scale and look at them as a contact sheet:
+Render the moments that matter at half scale and look at them as a contact sheet. Bundle once,
+then render single stills from the bundle (2–5 s each):
 
 ```bash
 npx tsx scripts/export-cues.ts
-npx remotion render src/index.ts Film out/check --sequence --frames=100-115 --scale=0.5 --image-format=jpeg --gl=angle --log=error
-python3 scripts/sheet.py out/check out/check.jpg --frames 104,106,108,110,112,114
+npx remotion bundle src/index.ts --out-dir=out/bundle            # again after every code/film change
+for f in 16 64 107 138 197 276; do
+  npx remotion still out/bundle Film out/check/element-$f.jpeg --frame=$f --scale=0.5 --gl=angle --log=error
+done
+python3 scripts/sheet.py out/check out/check.jpg --frames 16,64,107,138,197,276
 ```
+
+(A range at once: `npx remotion render out/bundle Film out/check --sequence --frames=100-115 --scale=0.5 --image-format=jpeg --gl=angle`.)
+
+Cheap flash check before the full render: render the windows with full-frame looks at
+`--scale=0.1` and run `post.flash_scan` on their luminance (see post.py); ≤ 3 per second.
 
 Check, per shot:
 - the scan is centred on the subject and its circle does not leave the frame;
 - the element sits on the open side, does not cover the face, is readable (white + dark glow) on
   the brightest part of the shot;
 - labels do not collide with element details or the HUD;
-- the chapter word overflows both frame edges (tune `p.size`, `p.x`);
-- for a ring behind the subject: no halo around the person (tighten the matte threshold).
+- the chapter word overflows both frame edges but still reads (tune `p.size`, `p.x`; a 6-letter
+  word ~720–760 px, a 3-letter word ~1060 px);
+- for a ring behind the subject: no halo around the person (tighten the matte threshold);
+- an element that collides with another piece: move it with `p.x` / `p.y` (top-left px) on the
+  element event, or shift the other event by 1–2 frames.
 
 Then measure the clean share: `npx tsx scripts/clean.ts` (target ~55–60 % per shot; a busier
 shot is fine if he asked for it).

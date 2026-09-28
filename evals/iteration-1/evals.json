@@ -1,0 +1,19 @@
+{
+  "skill_name": "skralovnik-motion-edit",
+  "evals": [
+    {
+      "id": 1,
+      "name": "eval-1-first-try-day",
+      "prompt": "Imam 8-sekundni osebni video za landing stran (day.mp4, 8 kadrov: Present, Build, Train, Build, Run, Team, Recover, Repeat). Naredi iz njega artističen, oster motion-design edit z overlayi in SFX, original zvok ven. Logo + wordmark SKRALOVNIK sta v brand/, moji elementi so v elements/.",
+      "expected_output": "A plan and test frames close to the approved v3: colour footage untouched, white scan -> element result bursts, rotating 1-frame transitions, meaningful element mapping, SFX-only plan mostly soft; popups prepared in Slovenian.",
+      "files": ["test-inputs/day.mp4", "test-inputs/brand/", "test-inputs/elements/"]
+    },
+    {
+      "id": 2,
+      "name": "eval-2-teaser-4-shots",
+      "prompt": "Naredi mi kratek teaser iz teaser.mp4 (4 kadri: trening na drogu, tek, savna, dvigovanje uteži) v istem stilu kot moj SKRALOVNIK edit, za objavo na IG profilu (16:9 je ok). Poglavja si izberi sam. Logo in elementi so v brand/ in elements/.",
+      "expected_output": "The same style generalised to 4 shots: config/cuts for the new clip, per-shot plan with results mapped by meaning, outro adapted to 4 shots, test frames legible, white edit over colour footage.",
+      "files": ["test-inputs/teaser.mp4", "test-inputs/brand/", "test-inputs/elements/"]
+    }
+  ]
+}

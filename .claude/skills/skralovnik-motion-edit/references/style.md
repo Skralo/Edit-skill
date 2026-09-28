@@ -93,6 +93,12 @@ v3 order: strips, neg, wipe, dit, strips, neg, dit, wipe. Never the same look tw
 wipes sit on the two biggest cuts (into Train and into Repeat). The first shot's entry is the
 strongest cut of the film (strong sound).
 
+Short films and teasers (≤ 4 shots): one or two wipes at most (ask), never on the first entry (the
+wipe flies from the outgoing subject, and before shot 1 there is only the boot: open on strips).
+A wipe starts 2 frames before its cut, so those frames count against the *outgoing* shot's clean
+share; with a 1-frame chapter word in the same shot the clean share can drop below 55 %: move the
+word to another shot.
+
 ## 5. Extra beats (at most one per shot, sometimes none)
 
 | Look | Frames | What it is |

@@ -145,8 +145,9 @@ export const Element: React.FC<{ o: number; ev: Ev }> = ({ o, ev }) => {
   const eh = HEIGHT[name] ?? 280;
   const ew = (eh * sw) / sh;
   const side = ev.p?.side !== undefined ? Number(ev.p.side) : cx < W / 2 ? 1 : -1;
-  const ex = clamp(side > 0 ? cx + R + 40 : cx - R - 40 - ew, 60, W - 60 - ew);
-  const ey = clamp(cy - eh / 2, 90, H - 110 - eh);
+  // beside the scan on the open side, kept inside the frame; p.x / p.y override (top-left px)
+  const ex = ev.p?.x !== undefined ? Number(ev.p.x) : clamp(side > 0 ? cx + R + 40 : cx - R - 40 - ew, 60, W - 60 - ew);
+  const ey = ev.p?.y !== undefined ? Number(ev.p.y) : clamp(cy - eh / 2, 90, H - 110 - eh);
   const bit = i === 0 || i === 3;
   const file = bit ? `${name}-bit` : name;
   // leader line from the scan circle to the element

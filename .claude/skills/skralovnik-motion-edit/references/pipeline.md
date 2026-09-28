@@ -68,7 +68,8 @@ outro's `SYM` / `FORM` offsets (they place the symbol inside logo.svg).
   "fps": 30, "width": 1920, "height": 1080,
   "pre": 6,                     // boot frames before the footage
   "outroHold": 11,              // frames held on the final logo
-  "recapLabel": "[REPEAT]",     // header of the outro contact sheet
+  "recapLabel": "[REPEAT]",     // header of the outro contact sheet ([REPEAT] for SKRALOVNIK's day
+                                // loop; for other films a word that fits, e.g. [RECAP], [DAY], [RUN])
   "cuts": [0, 30, …, 242],      // shot k = cuts[k]..cuts[k+1]; last = frame count (prep.py --detect-cuts)
   "chapters": ["Present", …],   // one word per shot (HUD caption, chapter flash, recap labels)
   "brand": { "wordmark": "SKRALOVNIK", "ink": "#050607", "paper": "#f4f1ea", "accent": "#00202d" },
@@ -110,7 +111,7 @@ boot(), outro()                        // the standard boot and outro events
 | `wipe` | overlay (chrome) | 4 | set `o = s(k) − 2`, `hit = s(k)` |
 | `scan` | overlay | 5–6 | `label` (via `scan()`) |
 | `orbit` | overlay | 6 | `label`, `fx`, `fy` (eye focus as box fractions) |
-| `element` | overlay | 4 | `el`, `label`, `side` (via `element()`) |
+| `element` | overlay | 4 | `el`, `label`, `side` (via `element()`); `x`, `y` override the top-left position (px) |
 | `ring` | overlay + cut-out | 8 | – (shot must be in `matteShots`) |
 | `strip` | overlay | 4 | – |
 | `contour` | overlay | 4 | – |
@@ -168,6 +169,9 @@ requirements.txt`; Remotion downloads its own Chromium.
 - `post.py` needs `out/film/soundtrack.wav`: run `sfx.py` first (render.sh does).
 - The ring cut-out uses the committed matte; if plates are regenerated, rerun `--cutouts`.
 - Never re-encode the approved master to change anything: change the film files and re-render.
+- `ffprobe` may be missing (the static ffmpeg ships without it): probe with `ffmpeg -i file`.
+  The static ffmpeg has no `drawtext` (no freetype): label analysis sheets with PIL or OpenCV.
+- `remotion render … --sequence=false` does not give a single still: use `remotion still`.
 
 ## 8. Changing the engine
 
