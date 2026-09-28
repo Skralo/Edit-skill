@@ -1,0 +1,30 @@
+{
+  "name": "film",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Footage in its own colour + a white HUD motion-design edit in bursts + SFX only (SKRALOVNIK style).",
+  "scripts": {
+    "studio": "remotion studio",
+    "cues": "tsx scripts/export-cues.ts",
+    "clean": "tsx scripts/clean.ts",
+    "typecheck": "tsc --noEmit -p .",
+    "film": "scripts/render.sh"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/silkscreen": "^5.3.0",
+    "@react-three/fiber": "^9.8.1",
+    "@remotion/cli": "^4.0.529",
+    "@remotion/three": "^4.0.529",
+    "@types/three": "^0.186.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.529",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

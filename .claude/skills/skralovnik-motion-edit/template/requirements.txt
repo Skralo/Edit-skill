@@ -1,0 +1,10 @@
+numpy
+scipy
+opencv-python-headless
+pillow
+soundfile
+pyloudnorm
+cairosvg
+imageio-ffmpeg
+# only for tracking / mattes on new footage (needs libEGL: apt-get install libegl1 libgles2 libgl1)
+mediapipe

@@ -1,0 +1,45 @@
+{
+  "name": "SKRALOVNIK personal film v3",
+  "source": "public/film/source.mp4",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "pre": 6,
+  "outroHold": 11,
+  "recapLabel": "[REPEAT]",
+  "cuts": [0, 30, 59, 90, 122, 153, 182, 215, 242],
+  "chapters": ["Present", "Build", "Train", "Build", "Run", "Team", "Recover", "Repeat"],
+  "brand": {
+    "wordmark": "SKRALOVNIK",
+    "ink": "#050607",
+    "paper": "#f4f1ea",
+    "accent": "#00202d"
+  },
+  "logo": { "width": 1040, "cx": 960, "cy": 540 },
+  "shots": [
+    { "track": { "target": "face", "pad": 1.9, "minW": 190, "aspect": 1.25, "lift": 0.08 }, "grade": { "lo": 0.5, "hi": 99.7, "gamma": 0.92, "k": 6.0 } },
+    { "track": { "target": "flow", "seedFrame": 44, "seed": [1105, 575], "box": [230, 170] }, "grade": { "lo": 1.0, "hi": 99.0, "gamma": 1.05, "k": 5.5 } },
+    { "track": { "target": "head_shoulders", "pad": 1.35, "minW": 220 }, "grade": { "lo": 1.0, "hi": 99.3, "gamma": 1.15, "k": 5.5 } },
+    { "track": { "target": "face", "pad": 1.9, "minW": 190, "aspect": 1.25, "lift": 0.08 }, "grade": { "lo": 1.0, "hi": 98.0, "gamma": 0.8, "k": 5.0 } },
+    { "track": { "target": "face", "pad": 2.4, "minW": 180, "aspect": 1.2, "lift": 0.05 }, "grade": { "lo": 1.0, "hi": 97.0, "gamma": 1.1, "k": 5.0 } },
+    { "track": { "target": "head_shoulders", "which": "all", "pad": 1.25, "minW": 300 }, "contours": 2, "grade": { "lo": 1.0, "hi": 98.5, "gamma": 1.05, "k": 5.5 } },
+    { "track": { "target": "body", "vis": 0.5, "pad": 1.12, "minW": 220 }, "grade": { "lo": 0.5, "hi": 99.8, "gamma": 0.85, "k": 6.0 } },
+    { "track": { "target": "body", "vis": 0.5, "pad": 1.12, "minW": 220 }, "grade": { "lo": 1.0, "hi": 98.5, "gamma": 1.05, "k": 5.5 } }
+  ],
+  "matteShots": [3],
+  "elements": {
+    "brain": { "side": 640, "h": 270 },
+    "eagle": { "side": 640, "treat": "lift", "h": 310 },
+    "cheetah": { "side": 640, "h": 280 },
+    "figures": { "side": 640, "treat": "white", "h": 420 },
+    "eye": { "side": 640, "h": 300 },
+    "network": { "side": 800, "h": 320 },
+    "tiger": { "side": 700, "h": 300 },
+    "sword": { "side": 820, "h": 470 },
+    "helmet": { "side": 720, "h": 330 },
+    "orbit": { "side": 1000, "treat": "lines", "h": 700 },
+    "words": { "side": 1000, "h": 720 },
+    "logo": { "side": 1200, "svg": "public/film/logo.svg", "h": 250 }
+  },
+  "sfxRound": 2
+}
